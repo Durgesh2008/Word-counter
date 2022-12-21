@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body{
+            background-color: rgba(131, 131, 230, 0.944);
+        }
+        .container{
+            width: 90%;
+            margin: 30px;
+            height: 70vh;
+            margin: auto;
+          margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #box{
+            font-size: 25px;
+            color: white;
+            background-color: rgba(10, 10, 10, 0.705);
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            min-height: 290px;
+            height: 50vh;
+        }
+        .title{
+            font-size: 45px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #161cd3;
+        }
+        .para{
+            font-size: 30px;
+            background-color: black;
+            color: white;
+            width: 70%;
+            border-radius: 20px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="title">
+            Word & Character Counter
+        </p>
+        <textarea  id="box" cols="80" rows="30"></textarea>
+        <p class="para">
+            <span id="words">0</span> Words and 
+            <span id="char">0</span> Character
+        </p>
+    </div>
+    <script>
+        var txtarea=document.getElementById('box');
+       
+     
+        txtarea.addEventListener('input',()=>{
+            let txt=txtarea.value;
+            let char=document.getElementById('char');
+            char.innerHTML=txt.length;
+            txt=txt.trim();
+            let words=txt.split(" ");
+            let cleanlist=words.filter(function(elm){
+                return elm!= "";
+            });
+            document.getElementById('words').innerHTML=cleanlist.length;
+            // console.log(txt);
+        })
+    </script>
+</body>
+</html>
