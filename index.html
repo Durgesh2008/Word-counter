@@ -68,7 +68,7 @@
             txt=txt.trim();
             let words=txt.split(" ");
             let cleanlist=words.filter(function(elm){
-                return elm!= "";
+                return elm!= "" or elm!='.';
             });
             document.getElementById('words').innerHTML=cleanlist.length;
             // console.log(txt);
